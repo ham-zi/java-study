@@ -28,6 +28,7 @@ public class UserIDStatic {
             return thisId;
         }
 
+
         public static User of(String name){
             return new User(name);
         }
