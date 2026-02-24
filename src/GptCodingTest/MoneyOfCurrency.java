@@ -1,5 +1,8 @@
 package GptCodingTest;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class MoneyOfCurrency {
 
     public static class Money{
@@ -15,6 +18,11 @@ public class MoneyOfCurrency {
         @Override
         public int hashCode() {
             return java.util.Objects.hash(amount, currency);
+        }
+
+        @Override
+        public String toString() {
+            return amount + " " + currency;
         }
 
         public enum Currency{
@@ -84,16 +92,19 @@ public class MoneyOfCurrency {
         }
 
         public static void main(String[] args) {
-            Money m1 = Money.of(30000,Currency.KRW);
-            Money m2 = Money.of(15000,Currency.KRW);
 
-            Money result = m1.minus(m2);
-            System.out.println(result.getMoney());
+            Money m1 = Money.of(1000, Money.Currency.KRW);
+            Money m2 = Money.of(1000, Money.Currency.KRW);
+            Money m3 = Money.of(2000, Money.Currency.KRW);
 
-            Money a = Money.of(1000, Currency.KRW);
-            Money b = Money.of(1000, Currency.KRW);
+            Set<Money> set = new HashSet<>();
 
-            System.out.println(a.equals(b)); // true 나와야 함
+            set.add(m1);
+            set.add(m2);
+            set.add(m3);
+
+            System.out.println("Set size: " + set.size());
+            System.out.println(set);
 
         }
 
